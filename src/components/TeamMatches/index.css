@@ -1,0 +1,16 @@
+/* Write your CSS here */
+
+.team-detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.inside-container {
+  min-height: 100vh;
+}
+
+.team-banner-style {
+  height: 400px;
+  width: 600px;
+}

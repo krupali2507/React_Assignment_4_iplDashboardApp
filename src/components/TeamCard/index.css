@@ -1,0 +1,22 @@
+/* Write your CSS here */
+.team-info-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  flex-basis: 45%;
+  margin: 30px;
+  padding: 20px;
+  font-family: 'Bree Serif';
+  text-decoration: none;
+}
+
+.team-logo {
+  height: 200px;
+  width: 200px;
+  margin-right: 20px;
+}
+
+.team-name {
+  color: #ffffff;
+}
