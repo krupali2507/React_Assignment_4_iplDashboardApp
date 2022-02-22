@@ -8,7 +8,13 @@
   margin: 30px;
   padding: 20px;
   font-family: 'Bree Serif';
+}
+
+.link-container {
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .team-logo {
@@ -19,4 +25,6 @@
 
 .team-name {
   color: #ffffff;
+  font-size: 30px;
+  font-weight: 500;
 }

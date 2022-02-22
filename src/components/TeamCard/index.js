@@ -7,10 +7,12 @@ const TeamCard = props => {
   const {id, name, teamImageUrl} = teamDetail
 
   return (
-    <Link to={`/team-matches/${id}`} className="team-info-container">
-      <img src={teamImageUrl} alt={name} className="team-logo" />
-      <h1 className="team-name">{name}</h1>
-    </Link>
+    <li className="team-info-container">
+      <Link to={`/team-matches/${id}`} className="link-container">
+        <img src={teamImageUrl} alt={name} className="team-logo" />
+        <p className="team-name">{name}</p>
+      </Link>
+    </li>
   )
 }
 

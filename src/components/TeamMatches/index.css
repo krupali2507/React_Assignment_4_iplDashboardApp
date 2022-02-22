@@ -8,9 +8,57 @@
 
 .inside-container {
   min-height: 100vh;
+  min-width: 700px;
+  max-width: 700px;
 }
 
 .team-banner-style {
   height: 400px;
-  width: 600px;
+  width: 700px;
+}
+
+.match-cards-container {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0px;
+}
+
+.latest-match-title {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.KXP {
+  background-image: linear-gradient(to bottom, #d91c1f, #1e293b);
+}
+
+.RCB {
+  background-image: linear-gradient(to bottom, #a4261d, #1e293b);
+}
+
+.KKR {
+  background-image: linear-gradient(to bottom, #5755a7, #1e293b);
+}
+
+.CSK {
+  background-image: linear-gradient(to bottom, #f7db00, #1e293b);
+}
+
+.RR {
+  background-image: linear-gradient(to bottom, #da237b, #1e293b);
+}
+
+.MI {
+  background-image: linear-gradient(to bottom, #4f5db0, #1e293b);
+}
+
+.SH {
+  background-image: linear-gradient(to bottom, #f26d22, #1e293b);
+}
+
+.DC {
+  background-image: linear-gradient(to bottom, #13418b, #1e293b);
 }

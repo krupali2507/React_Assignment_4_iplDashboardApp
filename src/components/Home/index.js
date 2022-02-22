@@ -1,11 +1,13 @@
 // Write your code here
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import TeamCard from '../TeamCard'
 import './index.css'
 
 class Home extends Component {
   state = {
     teamsList: [],
+    isLoading: true,
   }
 
   componentDidMount() {
@@ -21,11 +23,11 @@ class Home extends Component {
       name: eachTeam.name,
       teamImageUrl: eachTeam.team_image_url,
     }))
-    this.setState({teamsList: formattedTeamList})
+    this.setState({teamsList: formattedTeamList, isLoading: false})
   }
 
   render() {
-    const {teamsList} = this.state
+    const {teamsList, isLoading} = this.state
     return (
       <div className="home-bg-container">
         <div className="logo-container">
@@ -36,11 +38,17 @@ class Home extends Component {
           />
           <h1 className="heading">IPL Dashboard</h1>
         </div>
-        <ul className="teams-detail-container">
-          {teamsList.map(eachTeam => (
-            <TeamCard teamDetail={eachTeam} key={eachTeam.id} />
-          ))}
-        </ul>
+        {isLoading ? (
+          <div testid="loader">
+            <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          </div>
+        ) : (
+          <ul className="teams-detail-container">
+            {teamsList.map(eachTeam => (
+              <TeamCard teamDetail={eachTeam} key={eachTeam.id} />
+            ))}
+          </ul>
+        )}
       </div>
     )
   }

@@ -1,5 +1,7 @@
 // Write your code here
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
+import MatchCard from '../MatchCard'
 import LatestMatch from '../LatestMatch'
 import './index.css'
 
@@ -7,6 +9,9 @@ class TeamMatches extends Component {
   state = {
     latestMatchDetails: '',
     currentTeamBannerUrl: '',
+    recentMatches: [],
+    isLoading: true,
+    uid: '',
   }
 
   componentDidMount() {
@@ -50,28 +55,50 @@ class TeamMatches extends Component {
       formatData(eachMatch),
     )
 
-    console.log(formattedLatestMatchData)
-    console.log(formattedRecentMatchData)
-
     this.setState({
       currentTeamBannerUrl: teamBannerUrl,
       latestMatchDetails: formattedLatestMatchData,
+      recentMatches: [...formattedRecentMatchData],
+      isLoading: false,
+      uid: id,
     })
   }
 
   render() {
-    const {currentTeamBannerUrl, latestMatchDetails} = this.state
+    const {
+      currentTeamBannerUrl,
+      latestMatchDetails,
+      recentMatches,
+      isLoading,
+      uid,
+    } = this.state
+    console.log(uid)
+
     return (
-      <div className="team-detail-container">
-        <div className="inside-container">
-          <img
-            src={currentTeamBannerUrl}
-            alt="team banner"
-            className="team-banner-style"
-          />
-          <p>Latest Matches</p>
-          <LatestMatch latestMatchDetails={latestMatchDetails} />
-        </div>
+      <div className={`team-detail-container ${uid}`}>
+        {isLoading ? (
+          <div testid="loader">
+            <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          </div>
+        ) : (
+          <div className="inside-container">
+            <img
+              src={currentTeamBannerUrl}
+              alt="team banner"
+              className="team-banner-style"
+            />
+            <p className="latest-match-title">Latest Matches</p>
+            <LatestMatch latestMatchDetails={latestMatchDetails} />
+            <ul className="match-cards-container">
+              {recentMatches.map(eachRecentMatch => (
+                <MatchCard
+                  matchDetail={eachRecentMatch}
+                  key={eachRecentMatch.id}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     )
   }

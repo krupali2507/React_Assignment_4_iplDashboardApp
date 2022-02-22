@@ -1,1 +1,25 @@
 /* Write your CSS here */
+.competing-team-detail-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #0f172a;
+  border-radius: 6px;
+  flex-basis: 30%;
+  align-items: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.competing-team-logo {
+  width: 50px;
+  height: 80px;
+}
+
+.red {
+  color: #e31a1a;
+}
+
+.green {
+  color: #18ed66;
+}
