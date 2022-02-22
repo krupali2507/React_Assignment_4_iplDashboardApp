@@ -28,10 +28,34 @@ class TeamMatches extends Component {
       teamBannerUrl: data.team_banner_url,
     }
 
-    const {teamBannerUrl, latestMatchDetails} = updatedData
+    const formatData = eachMatch => ({
+      id: eachMatch.id,
+      competingTeam: eachMatch.competing_team,
+      competingTeamLogo: eachMatch.competing_team_logo,
+      date: eachMatch.date,
+      firstInnings: eachMatch.first_innings,
+      manOfTheMatch: eachMatch.man_of_the_match,
+      matchStatus: eachMatch.match_status,
+      result: eachMatch.result,
+      secondInnings: eachMatch.second_innings,
+      umpires: eachMatch.umpires,
+      venue: eachMatch.venue,
+    })
+
+    const {teamBannerUrl, latestMatchDetails, recentMatches} = updatedData
+
+    const formattedLatestMatchData = formatData(latestMatchDetails)
+
+    const formattedRecentMatchData = recentMatches.map(eachMatch =>
+      formatData(eachMatch),
+    )
+
+    console.log(formattedLatestMatchData)
+    console.log(formattedRecentMatchData)
+
     this.setState({
       currentTeamBannerUrl: teamBannerUrl,
-      latestMatchDetails,
+      latestMatchDetails: formattedLatestMatchData,
     })
   }
 

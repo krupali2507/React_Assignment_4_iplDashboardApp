@@ -1,1 +1,26 @@
 /* Write your CSS here */
+.latest-match-detail-container {
+  background-color: #1e293b;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.competing-team-logo {
+  height: 150px;
+  width: 100px;
+}
+
+.left-side-latestmatch-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 33%;
+}
+
+.right-side-latestmatch-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 33%;
+}
